@@ -3,6 +3,7 @@ package stringManipulation;
 public class HammingDistance {
 
 	public static void main(String[] args) {
+		System.out.println("Hamming Distance is : ");
 		System.out.println(hammingDistance(1, 4));
 	}
 	
