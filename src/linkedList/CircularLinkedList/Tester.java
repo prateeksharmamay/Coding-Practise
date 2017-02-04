@@ -1,12 +1,12 @@
-package linkedList.SinglyLinedList;
+package linkedList.CircularLinkedList;
 
 public class Tester {
 
 	public static void main(String[] args) {
-		SinglyLinkedList test = new SinglyLinkedList();
+		CircularLinkedList test = new CircularLinkedList();
 		
 		try{
-			test.testRemoveFromGivenPosition();
+			test.testRemoveFromEnd();
 		}
 		catch (Exception e) {
 			System.out.println("Exception: "+e);

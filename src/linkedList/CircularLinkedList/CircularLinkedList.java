@@ -1,45 +1,45 @@
-package linkedList.SinglyLinedList;
+package linkedList.CircularLinkedList;
 
-public class SinglyLinkedList {
+public class CircularLinkedList {
 
 	public void testInsertAtBeg(){
-		LinkedListImpl list = new LinkedListImpl();
+		CLinkedListImpl list = new CLinkedListImpl();
 		
 		ListNode temp1 = list.createNode(10);
-		list.insertAtBeg(temp1);
+		list.cInsertAtBeginning(temp1);
 		
 		ListNode temp2 = list.createNode(11);
-		list.insertAtBeg(temp2);
+		list.cInsertAtBeginning(temp2);
 		
 		ListNode temp3 = list.createNode(12);
-		list.insertAtBeg(temp3);
+		list.cInsertAtBeginning(temp3);
 		
 		ListNode temp4 = list.createNode(13);
-		list.insertAtBeg(temp4);
+		list.cInsertAtBeginning(temp4);
 		
 		list.displayList();
 	}
 	
 	public void testInsertAtEnd(){
-		LinkedListImpl list = new LinkedListImpl();
+		CLinkedListImpl list = new CLinkedListImpl();
 		
 		ListNode temp1 = list.createNode(10);
-		list.insertAtEnd(temp1);
+		list.cInsertAtEnd(temp1);
 		
 		ListNode temp2 = list.createNode(11);
-		list.insertAtEnd(temp2);
+		list.cInsertAtEnd(temp2);
 		
 		ListNode temp3 = list.createNode(12);
-		list.insertAtEnd(temp3);
+		list.cInsertAtEnd(temp3);
 		
 		ListNode temp4 = list.createNode(13);
-		list.insertAtEnd(temp4);
+		list.cInsertAtEnd(temp4);
 		
 		list.displayList();
 	}
-	
+	/*
 	public void testInsertAtGivenPosition(){
-		LinkedListImpl list = new LinkedListImpl();
+		CLinkedListImpl list = new CLinkedListImpl();
 		
 		list.displayList();
 		
@@ -68,56 +68,71 @@ public class SinglyLinkedList {
 		
 		list.displayList();
 	}
+	*/
 	
 	public void testRemoveFromBeginning(){
-		LinkedListImpl list = new LinkedListImpl();
-		
+		CLinkedListImpl list = new CLinkedListImpl();
+		list.deleteFromBeg();
+		list.displayList();
 		ListNode temp1 = list.createNode(10);
-		list.insertAtBeg(temp1);
+		list.cInsertAtBeginning(temp1);
 		
+		list.deleteFromBeg();
+		list.displayList();
 		ListNode temp2 = list.createNode(11);
-		list.insertAtBeg(temp2);
+		list.cInsertAtBeginning(temp2);
+		
+		ListNode temp5 = list.createNode(10);
+		list.cInsertAtBeginning(temp5);
+		
+		ListNode temp6 = list.createNode(11);
+		list.cInsertAtBeginning(temp6);
 		
 		ListNode temp3 = list.createNode(12);
-		list.insertAtBeg(temp3);
+		list.cInsertAtBeginning(temp3);
 		
 		ListNode temp4 = list.createNode(13);
-		list.insertAtBeg(temp4);
+		list.cInsertAtBeginning(temp4);
 		
 		list.displayList();
-		/**/
-		list.removeFromBeginning();
+		
+		list.deleteFromBeg();
 		list.displayList();
 	}
 	
 	public void testRemoveFromEnd(){
-		LinkedListImpl list = new LinkedListImpl();
+		CLinkedListImpl list = new CLinkedListImpl();
 		
+		list.deleteFromEnd();
+		list.displayList();
 		ListNode temp1 = list.createNode(10);
-		list.insertAtBeg(temp1);
+		list.cInsertAtBeginning(temp1);
 		
+		list.deleteFromEnd();
+		list.displayList();
 		ListNode temp2 = list.createNode(11);
-		list.insertAtBeg(temp2);
+		list.cInsertAtBeginning(temp2);
+		
+		ListNode temp5 = list.createNode(10);
+		list.cInsertAtBeginning(temp5);
+		
+		ListNode temp6 = list.createNode(11);
+		list.cInsertAtBeginning(temp6);
 		
 		ListNode temp3 = list.createNode(12);
-		list.insertAtBeg(temp3);
+		list.cInsertAtBeginning(temp3);
 		
 		ListNode temp4 = list.createNode(13);
-		list.insertAtBeg(temp4);
-		
-		list.displayList();/**/
-		
-		list.removeFromEnd();
+		list.cInsertAtBeginning(temp4);
 		
 		list.displayList();
 		
-		list.removeFromEnd();
-		
+		list.deleteFromEnd();
 		list.displayList();
 	}
-	
+	/*
 	public void testRemoveFromGivenPosition(){
-		LinkedListImpl list = new LinkedListImpl();
+		CLinkedListImpl list = new CLinkedListImpl();
 		
 		list.removeFromGivenPosition(1);
 		list.displayList();
@@ -140,10 +155,10 @@ public class SinglyLinkedList {
 		ListNode temp4 = list.createNode(13);
 		list.insertAtBeg(temp4);
 		
-		list.displayList();/**/
+		list.displayList();
 		
 		list.removeFromGivenPosition(2);
 		
 		list.displayList();
-	}
+	}*/
 }

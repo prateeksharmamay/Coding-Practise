@@ -1,10 +1,10 @@
 package linkedList.SinglyLinedList;
 
-public class LinkedList {
+public class LinkedListImpl {
 	ListNode head;
 	private int listLength;
 	
-	public LinkedList() {
+	public LinkedListImpl() {
 		head = null;
 		listLength = 0;
 	}
@@ -94,7 +94,7 @@ public class LinkedList {
 		ListNode temp = head;
 		
 		head = head.getNext();
-		
+		this.listLength--;
 		System.out.println("Deleted Node : "+temp.getData());
 	}
 	
@@ -109,6 +109,7 @@ public class LinkedList {
 		
 		else if(temp.getNext() == null){
 			head = null;
+			this.listLength--;
 		}
 		
 		else{
@@ -121,10 +122,46 @@ public class LinkedList {
 				temp = temp.getNext();
 			}
 			secLast.setNext(null);
+			this.listLength--;
 		}
 		
 		System.out.println("Deleted Node : "+temp.getData());
 		System.out.println("Head Node : "+head.getData());
+	}
+	
+	public void removeFromGivenPosition(int pos){
+		ListNode temp = new ListNode();
+		
+		if(pos < 1){
+			System.out.println("Invalid Position");
+		}
+		
+		else if(pos > listLength){
+			System.out.println("Invalid Position");
+		}
+		
+		if(head == null){
+			System.out.println("Empty List");
+			return;
+		}
+		
+		else if(pos == 1){
+			temp = this.getHead();
+			head = head.getNext();
+			this.listLength--;
+			System.out.println("Deleted Node - POS : "+pos+" || DATA: "+ temp.getData());
+		}
+		
+		else{
+			temp = this.getHead();
+			for(int i = 1; i < pos-1; i++){
+				temp = temp.getNext();
+			}
+			ListNode delNode = temp.getNext();
+			temp.setNext(temp.getNext().getNext());
+			System.out.println("Deleted Node - POS : "+pos+" || DATA: "+ delNode.getData());
+		}
+		
 	}
 	
 	////////////////////////////
