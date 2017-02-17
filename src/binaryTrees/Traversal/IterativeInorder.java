@@ -1,12 +1,13 @@
+package binaryTrees.Traversal;
 import java.util.ArrayList;
 import java.util.Stack;
 
 import binaryTrees.TreeNode;
 
 public class IterativeInorder {
+	private ArrayList<Integer> res = new ArrayList<>();
 
-	public static ArrayList<Integer> inorderTraversal(TreeNode root){
-		ArrayList<Integer> res = new ArrayList<>();
+	public void inorderTraversal(TreeNode root){
 		Stack<TreeNode> s = new Stack<>();
 		TreeNode currentNode = root;
 		
@@ -28,6 +29,15 @@ public class IterativeInorder {
 				}
 			}
 		}
-		return res;
+	}
+	
+	public String toString(){
+		String display="";
+		
+		for(int i = 0 ; i < res.size(); i++){
+			display += res.get(i)+"\t";
+		}
+		
+		return display;
 	}
 }
