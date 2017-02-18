@@ -5,7 +5,7 @@ import binaryTrees.levelOrder.IterativeLevelOrderInsetInBinaryTree;
 
 public class TreesTestClass {
 	public static void main(String[] args) {
-		/*IterativeLevelOrderInsetInBinaryTree tree = new IterativeLevelOrderInsetInBinaryTree();
+		IterativeLevelOrderInsetInBinaryTree tree = new IterativeLevelOrderInsetInBinaryTree();
 		TreeNode t1 = new TreeNode(1);
 		
 		tree.insertBTLevelOrder(t1, 2);
@@ -13,7 +13,17 @@ public class TreesTestClass {
 		tree.insertBTLevelOrder(t1, 4);
 		tree.insertBTLevelOrder(t1, 5);
 		tree.insertBTLevelOrder(t1, 6);
-		tree.insertBTLevelOrder(t1, 7);*/
+		tree.insertBTLevelOrder(t1, 7);
+		
+		RecursivePostOrderTraversal recPost = new RecursivePostOrderTraversal();
+		recPost.recursivePostorderTraversal(t1);
+		
+		System.out.println(recPost);
+		
+		/*IterativePostOrderTraversal postOrderTrav = new IterativePostOrderTraversal();
+		postOrderTrav.iterativePostOrder(t1);
+		
+		System.out.println(postOrderTrav);*/
 		
 		/*RecursiveInOrderTraversal inOrderTraversal = new RecursiveInOrderTraversal();
 		
