@@ -18,7 +18,7 @@ public class RecursiveLevelOrderInsertInBT {
 			root.setLeft(new TreeNode(data));
 		}
 		else {
-			insertHelper(root.getLeft(), data);
+			insertHelper(root.getRight(), data);
 		}
 		
 		if(root.getRight() == null){

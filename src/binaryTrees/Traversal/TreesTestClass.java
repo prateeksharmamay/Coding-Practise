@@ -1,11 +1,11 @@
 package binaryTrees.Traversal;
 
 import binaryTrees.TreeNode;
-import binaryTrees.levelOrder.IterativeLevelOrderInsetInBinaryTree;
+import binaryTrees.levelOrder.*;
 
 public class TreesTestClass {
 	public static void main(String[] args) {
-		IterativeLevelOrderInsetInBinaryTree tree = new IterativeLevelOrderInsetInBinaryTree();
+		/*IterativeLevelOrderInsetInBinaryTree tree = new IterativeLevelOrderInsetInBinaryTree();
 		TreeNode t1 = new TreeNode(1);
 		
 		tree.insertBTLevelOrder(t1, 2);
@@ -14,11 +14,39 @@ public class TreesTestClass {
 		tree.insertBTLevelOrder(t1, 5);
 		tree.insertBTLevelOrder(t1, 6);
 		tree.insertBTLevelOrder(t1, 7);
+		*/
+		RecursiveLevelOrderInsertInBT tree = new RecursiveLevelOrderInsertInBT();
+		TreeNode t1 = new TreeNode(1);
 		
-		RecursivePostOrderTraversal recPost = new RecursivePostOrderTraversal();
+		tree.insertRecursiveBT(t1, 2);
+		tree.insertRecursiveBT(t1, 3);
+		tree.insertRecursiveBT(t1, 4);
+		tree.insertRecursiveBT(t1, 5);
+		tree.insertRecursiveBT(t1, 6);
+		tree.insertRecursiveBT(t1, 7);
+		
+		try {
+			LevelOrderTraversal levelTrav = new LevelOrderTraversal();
+			levelTrav.levelOrderTraversal(t1);
+
+			System.out.println(levelTrav);
+		} catch (Exception e) {
+			System.out.println(e);		}
+		/*
+		MorrisPreOrderTraversal mPreTrav = new MorrisPreOrderTraversal();
+		mPreTrav.morrisPreoderTraversal(t1);
+		
+		System.out.println(mPreTrav);*/
+		
+		/*MorrisInOrderTraversal mInTrav = new MorrisInOrderTraversal();
+		mInTrav.morrisInoderTraversal(t1);
+		
+		System.out.println(mInTrav);*/
+		
+		/*RecursivePostOrderTraversal recPost = new RecursivePostOrderTraversal();
 		recPost.recursivePostorderTraversal(t1);
 		
-		System.out.println(recPost);
+		System.out.println(recPost);*/
 		
 		/*IterativePostOrderTraversal postOrderTrav = new IterativePostOrderTraversal();
 		postOrderTrav.iterativePostOrder(t1);
