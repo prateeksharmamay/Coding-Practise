@@ -25,13 +25,10 @@ public class TreesTestClass {
 		tree.insertRecursiveBT(t1, 6);
 		tree.insertRecursiveBT(t1, 7);
 		
-		try {
-			LevelOrderTraversal levelTrav = new LevelOrderTraversal();
-			levelTrav.levelOrderTraversal(t1);
-
-			System.out.println(levelTrav);
-		} catch (Exception e) {
-			System.out.println(e);		}
+		LevelOrderTraversal levelTrav = new LevelOrderTraversal(); 
+		levelTrav.levelOrderTraversal(t1);
+		
+		System.out.println(levelTrav);
 		/*
 		MorrisPreOrderTraversal mPreTrav = new MorrisPreOrderTraversal();
 		mPreTrav.morrisPreoderTraversal(t1);
