@@ -5,7 +5,7 @@ import binaryTrees.levelOrder.*;
 
 public class TreesTestClass {
 	public static void main(String[] args) {
-		/*IterativeLevelOrderInsetInBinaryTree tree = new IterativeLevelOrderInsetInBinaryTree();
+		IterativeLevelOrderInsetInBinaryTree tree = new IterativeLevelOrderInsetInBinaryTree();
 		TreeNode t1 = new TreeNode(1);
 		
 		tree.insertBTLevelOrder(t1, 2);
@@ -14,8 +14,8 @@ public class TreesTestClass {
 		tree.insertBTLevelOrder(t1, 5);
 		tree.insertBTLevelOrder(t1, 6);
 		tree.insertBTLevelOrder(t1, 7);
-		*/
-		RecursiveLevelOrderInsertInBT tree = new RecursiveLevelOrderInsertInBT();
+		
+		/*RecursiveLevelOrderInsertInBT tree = new RecursiveLevelOrderInsertInBT();
 		TreeNode t1 = new TreeNode(1);
 		
 		tree.insertRecursiveBT(t1, 2);
@@ -28,12 +28,12 @@ public class TreesTestClass {
 		LevelOrderTraversal levelTrav = new LevelOrderTraversal(); 
 		levelTrav.levelOrderTraversal(t1);
 		
-		System.out.println(levelTrav);
-		/*
+		System.out.println(levelTrav);*/
+		
 		MorrisPreOrderTraversal mPreTrav = new MorrisPreOrderTraversal();
 		mPreTrav.morrisPreoderTraversal(t1);
 		
-		System.out.println(mPreTrav);*/
+		System.out.println(mPreTrav);
 		
 		/*MorrisInOrderTraversal mInTrav = new MorrisInOrderTraversal();
 		mInTrav.morrisInoderTraversal(t1);
