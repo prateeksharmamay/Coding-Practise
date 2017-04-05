@@ -1,0 +1,15 @@
+CMPE - 275 Notes:
+presentation layer
+business layer
+data layer
+
+Midterm: (Not - Dagger, GUICE)
+6:30PM (90 min)
+PPts till 8 march, 2017
+1) MCQ 60%
+2) T/F 10%
+3) short answer questions 30%
+1-2Qstns coding
+	
+	
+Persistance
