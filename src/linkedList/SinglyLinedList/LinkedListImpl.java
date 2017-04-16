@@ -174,6 +174,14 @@ public class LinkedListImpl {
 		}
 	}
 	
+	public static void displayList(ListNode tempHead){
+//		ListNode tempHead = this.getHead();
+		while(tempHead != null){
+			System.out.println(tempHead.getData()+"\t");
+			tempHead = tempHead.getNext();
+		}
+	}
+	
 	public ListNode createNode(int data){
 		ListNode temp = new ListNode();
 		temp.setData(data);
