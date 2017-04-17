@@ -164,6 +164,55 @@ public class LinkedListImpl {
 		
 	}
 	
+	///////////////////////////
+	// Merge Sort
+	
+	public static ListNode sortList(ListNode head) {
+	    if (head == null || head.getNext() == null)
+	      return head;
+	        
+	    // step 1. cut the list to two halves
+	    ListNode prev = null, slow = head, fast = head;
+	    
+	    while (fast != null && fast.getNext() != null) {
+	      prev = slow;
+	      slow = slow.getNext();
+	      fast = fast.getNext().getNext();
+	    }
+	    
+	    prev.setNext(null);
+	    
+	    // step 2. sort each half
+	    ListNode l1 = sortList(head);
+	    ListNode l2 = sortList(slow);
+	    
+	    // step 3. merge l1 and l2
+	    return merge(l1, l2);
+	  }
+	  
+	  static ListNode merge(ListNode l1, ListNode l2) {
+	    ListNode l = new ListNode(0), p = l;
+	    
+	    while (l1 != null && l2 != null) {
+	      if (l1.getData() < l2.getData()) {
+	        p.setNext(l1);
+	        l1 = l1.getNext();
+	      } else {
+	    	  p.setNext(l2);
+	        l2 = l2.getNext();
+	      }
+	      p = p.getNext();
+	    }
+	    
+	    if (l1 != null)
+	      p.setNext(l1);
+	    
+	    if (l2 != null)
+	      p.setNext(l2);
+	    
+	    return l.getNext();
+	  }
+	
 	////////////////////////////
 	
 	public void displayList(){
