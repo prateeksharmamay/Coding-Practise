@@ -2,8 +2,6 @@ package graphs.AdjacencyList;
 
 import java.util.*;
 
-import linkedList.SinglyLinedList.ListNode;
-
 public class Graph {
 	Map<Integer, List<Integer>> list;
 	private int noVertices;

@@ -2,9 +2,6 @@ package graphs.AdjacencyList;
 
 import java.util.*;
 
-import linkedList.SinglyLinedList.LinkedListImpl;
-import linkedList.SinglyLinedList.ListNode;
-
 public class AdjacencyListImpl {
 	Graph g;
 	

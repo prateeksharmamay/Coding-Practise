@@ -2,7 +2,6 @@ package programmingQuestions;
 
 import linkedList.SinglyLinedList.LinkedListImpl;
 import linkedList.SinglyLinedList.ListNode;
-import linkedList.SinglyLinedList.SinglyLinkedList;
 
 public class LinkedListMerge2Lists {
 	

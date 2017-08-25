@@ -36,6 +36,7 @@ public class MorrisPreOrderTraversal {
 		}
 	}
 	
+	@Override
 	public String toString(){
 		String display = "";
 		

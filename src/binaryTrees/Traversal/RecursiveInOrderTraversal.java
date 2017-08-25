@@ -15,6 +15,7 @@ public class RecursiveInOrderTraversal {
 		}
 	}
 	
+	@Override
 	public String toString(){
 		String display="";
 		

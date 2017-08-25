@@ -1,7 +1,5 @@
 package linkedList.DoublyLinkedList;
 
-import java.awt.List;
-
 public class DoublyLinkedListImpl {
 	ListNode head;
 	ListNode tail;

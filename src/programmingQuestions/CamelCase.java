@@ -10,7 +10,7 @@ public class CamelCase {
 		int w = 0;
 		
 		for(int i = 0; i < s.length(); i++){
-			if((int)s.charAt(i) >= 65 && (int)s.charAt(i) <= 90){
+			if(s.charAt(i) >= 65 && s.charAt(i) <= 90){
 				w++;
 			}
 		}

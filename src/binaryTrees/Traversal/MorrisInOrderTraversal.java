@@ -36,6 +36,7 @@ public class MorrisInOrderTraversal {
 		}
 	}
 	
+	@Override
 	public String toString(){
 		String display = "";
 		

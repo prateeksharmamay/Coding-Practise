@@ -4,7 +4,7 @@ public class SortQuick {
 	static int a[];
 	
 	public SortQuick(int a[]) {
-		this.a = a;
+		SortQuick.a = a;
 	}
 	
 	public void quickSort(int start, int end){
