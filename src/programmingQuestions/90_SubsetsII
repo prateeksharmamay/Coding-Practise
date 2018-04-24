@@ -1,0 +1,43 @@
+/* 90_Subsets II
+Given a collection of integers that might contain duplicates, nums, return all possible subsets (the power set).
+
+Note: The solution set must not contain duplicate subsets.
+
+Example:
+
+Input: [1,2,2]
+Output:
+[
+  [2],
+  [1],
+  [1,2,2],
+  [2,2],
+  [1,2],
+  []
+]
+*/
+
+class Solution {
+    public List<List<Integer>> subsetsWithDup(int[] nums) {
+        List<List<Integer>> res = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
+        
+        Arrays.sort(nums);
+        
+        backtracking(res, list, nums, 0);
+        
+        return res;
+    }
+    
+    public void backtracking(List<List<Integer>> res, List<Integer> list, int[] nums, int start) {
+        res.add(new ArrayList(list));
+        
+        for(int i = start; i < nums.length; i++) {
+            if(i > start && nums[i] == nums[i-1]) continue; // to avoid duplicates entry in set
+            
+            list.add(nums[i]);
+            backtracking(res, list, nums, i+1);
+            list.remove(list.size()-1);
+        }
+    }
+}
