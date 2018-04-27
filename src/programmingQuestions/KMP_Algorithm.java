@@ -1,5 +1,7 @@
 
 /*
+Ref: https://www.youtube.com/watch?v=GTJr8OvyEVQ , https://www.youtube.com/watch?v=D6dCOa_gMoY , 
+https://github.com/mission-peace/interview/blob/master/src/com/interview/string/SubstringSearch.java
 String Substring/pattern search in a text
 KMP Algorithm: String Matching Algorithm
 How to compute Prefix Array
