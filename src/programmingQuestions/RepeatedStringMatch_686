@@ -19,8 +19,15 @@ Algorithm
 Imagine we wrote S = A+A+A+.... If B is to be a substring of S, we only need to check whether some S[0:], S[1:], ..., S[len(A) - 1:] starts with B, as S is long enough to contain B, and S has period at most len(A).
 
 Now, suppose q is the least number for which len(B) <= len(A * q). We only need to check whether B is a substring of A * q or A * (q+1). If we try k < q, then B has larger length than A * q and therefore can't be a substring. When k = q+1, A * k is already big enough to try all positions for B; namely, A[i:i+len(B)] == B for i = 0, 1, ..., len(A) - 1.
+
+Complexity Analysis
+
+Time Complexity: O(N*(N+M))O(N∗(N+M)), where M, NM,N are the lengths of strings A, B. We create two strings A * q, A * (q+1) which have length at most O(M+N). When checking whether B is a substring of A, this check takes naively the product of their lengths.
+
+Space complexity: As justified above, we created strings that used O(M+N)O(M+N) space.
 */
 
+/*
 class Solution {
     public int repeatedStringMatch(String A, String B) {
         
@@ -33,10 +40,163 @@ class Solution {
             times++;
         }
         
+        // if(hasSubString(S.toString(),B)) return times;
+        // if(hasSubString(S.append(A).toString(),B)) return times+1;
+        
+        // With indexOf Excec time is ~90% otherwise with custom comparison the time is just ~10%
         if(S.indexOf(B) >=0 ) return times;
         if(S.append(A).indexOf(B) >= 0) return times+1;
         
         return -1;
         
     }
+    
+    public boolean hasSubString(String A, String B) {
+        int i = 0, j = 0, k = 0;
+        
+        while(i < A.length() && j < B.length()) {
+            if(A.charAt(i) == B.charAt(j)) {
+                i++;
+                j++;
+            }
+            else{
+                j=0;
+                k++;
+                i=k;
+            }
+        }
+        
+        return j == B.length();
+    }
 }
+*/
+
+
+/** Approach #2: KMP Algorithm [Accepted] Best: Excecution Better: ~97%
+Intuition
+Ref: https://www.youtube.com/watch?v=GTJr8OvyEVQ , https://www.youtube.com/watch?v=D6dCOa_gMoY , 
+https://github.com/mission-peace/interview/blob/master/src/com/interview/string/SubstringSearch.java
+String Substring/pattern search in a text
+KMP Algorithm: String Matching Algorithm
+How to compute Prefix Array
+String str = "acbacxabcdabxabcdacbacdabcy"
+String ptrn = "acbacdabcy"
+'i' starts from 0
+'j' starts from i+1
+int prefixPtrn = new int[ptrn.length];
+This array is pre-processed to skip unnecessary character comparison in str.
+1) Always, prefixPtrn[0] = 0
+2) If prefixPtrn[i] != prefixPtrn[j]
+    * prefixPtrn[j] = 0
+    * j = j+1
+    * i = prefixPtrn[i-1]
+3) If str[i] == ptrn[j]
+    * a[j] = i+1
+    * i = i+1 
+    * j = j+1
+4) next starting point is can be found at index:
+    newStartIndex = prefixPtrn[prefixPtrn[j-1]]
+
+Complexity Analysis
+
+Time Complexity: O(M+N)O(M+N) (at these sizes), where M, NM,N are the lengths of strings A, B. As in Approach #1, we justify that A * (q+1) will be of length O(M + N)O(M+N), and computing the rolling hashes was linear work. 
+
+Space complexity: O(1)O(1). Only integers were stored with additional memory.
+*/
+// /*
+class Solution {
+    
+    private int[] computePrefixArray(String patternArr) {
+        int i = 0 , j = 1 ;
+        int prefixArr[] = new int[patternArr.length()];
+        
+        while(j < patternArr.length()) {
+//             System.out.println("patternArr.charAt(i): "+patternArr.charAt(i));
+//             System.out.println("patternArr.charAt(j): "+patternArr.charAt(j));
+            
+//             System.out.println("BEFORE:\n\n ");
+//             System.out.println("i: "+i);
+//             System.out.println("j: "+j);
+            if(patternArr.charAt(i) == patternArr.charAt(j)) {
+                prefixArr[j] = i+1;
+                i++;
+                j++;
+            }
+            
+            else{
+                if(i!=0){
+                    i = prefixArr[i-1];
+                }
+                else{
+                    prefixArr[j] = 0;
+                    j++;
+                }
+            }
+            
+            // System.out.println("After:\n\n ");
+            // System.out.println("i: "+i);
+            // System.out.println("j: "+j);
+            
+            // for(int x: prefixArr){
+            //     System.out.println("prefixArr: "+x);
+            // }
+        }
+        return prefixArr;
+    }
+    
+    public boolean KMPAlgoForStringMatch(StringBuilder A, String B, int[] prefixArray) {
+        int i = 0 , j = 0;
+        // System.out.println("A: "+A);
+        // System.out.println("B: "+B);
+        while(i < A.length() && j < B.length()) {
+            // System.out.println("A.charAt(i): "+A.charAt(i));
+            // System.out.println("B.charAt(j): "+B.charAt(j));
+            if(A.charAt(i) != B.charAt(j)){
+                if(j!=0) j = prefixArray[j-1];
+                else i++;
+            }
+            
+            else {
+                i++;
+                j++;
+            }
+        }
+        // System.out.println("j == B.length(): "+ (j == B.length()));
+        return j == B.length();
+    }
+    
+    public int repeatedStringMatch(String A, String B) {
+        
+        int times = 1;
+        
+        StringBuilder S = new StringBuilder(A);
+        // System.out.println("hey: ");
+        int prefixArray[] = computePrefixArray(B);
+        // System.out.println("prefixArray: "+prefixArray.toString());
+        // for(int i=0; i< prefixArray.length; i++) {
+        //     System.out.println("prefixArray[i]: "+prefixArray[i]);
+        // }
+        while(S.length() < B.length()){
+            S.append(A);
+            times++;
+        }
+        // System.out.println("S: "+S);
+        
+        boolean res = KMPAlgoForStringMatch(S, B,prefixArray);
+        // System.out.println("res: "+res);
+        
+        if(res) {
+            return times;
+        }
+        
+        res = KMPAlgoForStringMatch(S.append(A), B,prefixArray);
+        // System.out.println("res: "+res);
+        if(res) {
+            return times+1;
+        }
+        
+        return -1;
+        
+    }
+}
+// */
