@@ -1,0 +1,71 @@
+/**
+273. Integer to English Words
+
+Convert a non-negative integer to its english words representation. Given input is guaranteed to be less than 231 - 1.
+
+Example 1:
+
+Input: 123
+Output: "One Hundred Twenty Three"
+Example 2:
+
+Input: 12345
+Output: "Twelve Thousand Three Hundred Forty Five"
+Example 3:
+
+Input: 1234567
+Output: "One Million Two Hundred Thirty Four Thousand Five Hundred Sixty Seven"
+Example 4:
+
+Input: 1234567891
+Output: "One Billion Two Hundred Thirty Four Million Five Hundred Sixty Seven Thousand Eight Hundred Ninety One"
+
+*/
+
+class IntegerToEnglishWords_273 {
+    
+    final String[] ones = {"", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"};
+    
+    final String[] teens = {"Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
+    
+    final String[] tens = {"","","Twenty","Thirty","Forty","Fifty","Sixty","Seventy","Eighty","Ninety"};
+    final int billion = 1000000000;
+    final int million = 1000000;
+    final int thousand = 1000;
+    final int hundred = 100;
+    final int twenty = 20;
+    final int ten = 10;
+     
+    public String numberToWords(int num) {
+        if (num == 0) return "Zero";
+        else return helper(num);
+    }
+    
+    private String helper(int num) {
+        StringBuilder sb = new StringBuilder();
+        
+        if(num >= billion) {
+            sb.append(helper(num/billion)).append(" Billion ").append(helper(num%billion));
+        }
+        else if(num >= million) {
+            sb.append(helper(num/million)).append(" Million ").append(helper(num%million));
+        }
+        else if(num >= thousand) {
+            sb.append(helper(num/thousand)).append(" Thousand ").append(helper(num%thousand));
+        }
+        else if(num >= hundred) {
+            sb.append(helper(num/hundred)).append(" Hundred ").append(helper(num%hundred));
+        }
+        else if(num >= twenty) {
+            sb.append(tens[num/10]).append(" ").append(helper(num%10));
+        }
+        else if(num >= ten) {
+            sb.append(teens[num % 10]);
+        }
+        else {
+            sb.append(ones[num]);
+        }
+        
+        return sb.toString().trim();
+    }
+}
