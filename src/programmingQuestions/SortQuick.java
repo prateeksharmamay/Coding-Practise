@@ -1,5 +1,6 @@
 package programmingQuestions;
-
+// https://www.youtube.com/watch?v=COk73cpQbFQ
+// https://www.youtube.com/watch?v=3Bbm3Prd5Fo&list=PL2_aWCzGMAwKedT2KfDMB9YA5DgASZb3U&index=8
 public class SortQuick {
 	static int a[];
 	
